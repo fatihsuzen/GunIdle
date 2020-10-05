@@ -7,6 +7,8 @@ public class bulletMoneyEvent : MonoBehaviour
     public static int[] BuletValue = new int[11];
     private void OnCollisionEnter(Collision collision)
     {
+        Destroy(gameObject);
+        Healthbar.health += 4f;
         if (collision.collider.tag == "pistolTarget")
         {
             money.Money += BuletValue[0];
@@ -47,8 +49,6 @@ public class bulletMoneyEvent : MonoBehaviour
         {
             money.Money += BuletValue[10];
         }
-        Destroy(gameObject);
-        Healthbar.health += 2f;
     }
 
 }

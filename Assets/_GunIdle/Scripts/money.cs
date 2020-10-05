@@ -7,7 +7,7 @@ public class money : MonoBehaviour
 {
     public static long Money=0;
     public TextMeshProUGUI moneyText;
-    int lvlBonus=20000;
+    int lvlBonus=50000;
     void Start()
     {        
         InvokeRepeating("MoneyUpdate", 0, 0.2f);
@@ -36,7 +36,6 @@ public class money : MonoBehaviour
     public void SaveMoney()
     {
         PlayerPrefs.SetInt("Money",(int)Money); 
-        PlayerPrefs.Save();
     }   
     public void LoadMoney()
     {

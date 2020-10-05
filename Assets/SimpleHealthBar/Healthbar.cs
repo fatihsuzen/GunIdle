@@ -20,7 +20,7 @@ public class Healthbar : MonoBehaviour {
     [Tooltip("Minimum possible heath: (default is 0)")] public float minimumHealth = 0;
 
     // Maximum possible health:
-    [Tooltip("Maximum possible heath: (default is 100)")] public static float maximumHealth = 100;
+    public static float maximumHealth = 100;
 
     // If the character has this health or less, consider them having low health:
     [Tooltip("Low health is less than or equal to this:")] public int lowHealth = 33;
@@ -48,7 +48,7 @@ public class Healthbar : MonoBehaviour {
     {
         GunLvlCounter++;
         health = 0;
-        maximumHealth += maximumHealth * 0.3f;
+        maximumHealth += maximumHealth * 0.25f;
         UpdateHealth();
         SaveXp();
         healthbarDisplay.minValue = minimumHealth;

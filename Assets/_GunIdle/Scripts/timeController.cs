@@ -10,14 +10,13 @@ public class timeController : MonoBehaviour
     void Start()
     {        
         LoadBonusMoney();
-        money.Money += bonusHour * 2000000;
+        money.Money += bonusHour * 20000000;
         InvokeRepeating("SaveCurrentSceneTime", 0, 1);
     }
     public void SaveCurrentSceneTime()
     {
         savedTime = System.DateTime.Now.Hour;
         PlayerPrefs.SetInt("SavedTime", savedTime);
-        PlayerPrefs.Save();
     }
     public void LoadBonusMoney()
     {
