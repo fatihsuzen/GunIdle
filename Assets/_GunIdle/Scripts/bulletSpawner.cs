@@ -7,6 +7,7 @@ public class bulletSpawner : MonoBehaviour
     public float AutoFireTime=2f;
     AudioSource fireSound;
     Animator fireAnimation;
+    public ParticleSystem particleSystem;
     void Start()
     {
         fireSound = GetComponent<AudioSource>();
@@ -17,6 +18,7 @@ public class bulletSpawner : MonoBehaviour
     {        
         yield return new WaitForSeconds(AutoFireTime);
         fireAnimation.Play(0, 0, 0.25f);
+        particleSystem.Play();
         Instantiate(bullet, transform.position, Quaternion.Euler(-90f, 0, -90f));
         StartCoroutine(CoroutineTest());
     }
