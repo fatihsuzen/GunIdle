@@ -28,13 +28,13 @@ public class upgrade : MonoBehaviour
         money.Money -= (int)currentMoneyPrice;
         if (levelController.LvlCounter>20)
         {
-            currentMoneyValue += 50 * multiplier;
-            currentMoneyPrice += 1000 * multiplier;
+            currentMoneyValue += 3 * multiplier;
+            currentMoneyPrice += 3000 * multiplier;
         }        
         else
         {
-            currentMoneyValue += 2 * multiplier;
-            currentMoneyPrice += 5 * multiplier;
+            currentMoneyValue += 5 * multiplier;
+            currentMoneyPrice += 100 * multiplier;
         }
         if (bulletSpawner.AutoFireTime > 0.2f)
         {

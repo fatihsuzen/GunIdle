@@ -24,7 +24,9 @@ public class bulletSpawner : MonoBehaviour
     }
     public void FireButtonFunc()
     {
-        //fireSound.Play();
+        fireSound.Play();
+        fireAnimation.Play(0, 0, 0.25f);
+        particleSystem.Play();
         Instantiate(bullet, transform.position, Quaternion.Euler(-90f, 0, -90f));
     }
 }

@@ -5,10 +5,11 @@ using TMPro;
 public class bulletMoneyEvent : MonoBehaviour
 {
     public static int[] BuletValue = new int[11];
+    
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
-        Healthbar.health += 4f;
+        Healthbar.health += Healthbar.LvlPoint;
         if (collision.collider.tag == "pistolTarget")
         {
             money.Money += BuletValue[0];

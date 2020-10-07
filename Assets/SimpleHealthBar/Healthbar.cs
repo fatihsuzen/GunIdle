@@ -44,28 +44,38 @@ public class Healthbar : MonoBehaviour {
     public Color lowHealthColor = new Color(1f, 0.259434f, 0.259434f);
 
     public static int GunLvlCounter=1;
+    public static float LvlPoint = 2;
     public void LvlUpFunc()
     {
         GunLvlCounter++;
         health = 0;
-        maximumHealth += maximumHealth * 0.25f;
+        if(LvlPoint > 0.1f)
+        {
+            LvlPoint -= 0.055f;
+        }        
         UpdateHealth();
         SaveXp();
-        healthbarDisplay.minValue = minimumHealth;
-        healthbarDisplay.maxValue = maximumHealth;
     }
     public void SaveXp()
     {
         PlayerPrefs.SetInt("GunLvlCounter", GunLvlCounter);
         PlayerPrefs.SetFloat("maximumHealth", maximumHealth);
         PlayerPrefs.SetFloat("health", health);
+        PlayerPrefs.SetFloat("LvlPoint", LvlPoint);
     }
-    private void Start()
+    public void Load()
     {
         GunLvlCounter = PlayerPrefs.GetInt("GunLvlCounter");
         maximumHealth += PlayerPrefs.GetFloat("maximumHealth");
         health = PlayerPrefs.GetFloat("health");
-        
+        if (PlayerPrefs.HasKey("LvlPoint"))
+        {
+            LvlPoint = PlayerPrefs.GetFloat("LvlPoint");
+        }
+    }
+    private void Start()
+    {
+        Load();
         // If the healthbar hasn't already been assigned, then automatically assign it.
         if (healthbarDisplay == null)
         {
