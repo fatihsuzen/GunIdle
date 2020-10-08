@@ -17,6 +17,11 @@ public class money : MonoBehaviour
     {
         moneyText.text = Money.ToString()+"$";
         SaveMoney();
+        //for bug
+        if(Money<0)
+        {
+            Money *= -1;
+        }
     }
     public void SetMoneyValue(int value)
     {
