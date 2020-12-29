@@ -20,7 +20,7 @@ public class ReklamRewardedVideo : MonoBehaviour
     {
       X2Boost();
       AdRequest reklamIstegi = new AdRequest.Builder().Build();
-      reklamObjesi.LoadAd(reklamIstegi, "ca-app-pub-4820411076035062/3274287645");
+      reklamObjesi.LoadAd(reklamIstegi, "ca-app-pub-5801080710135130/6268285480");
       StartCoroutine(ReklamiGoster());        
     }
     void X2Boost()

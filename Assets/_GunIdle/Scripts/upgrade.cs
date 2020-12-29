@@ -39,7 +39,7 @@ public class upgrade : MonoBehaviour
         if (bulletSpawner.AutoFireTime > 0.2f)
         {
             bulletSpawner.AutoFireTime -= 0.02f;
-        }
+        }       
         bulletMoneyEvent.BuletValue[gunArrayNO] = (int)currentMoneyValue;
         moneyButtonText.text = (int)currentMoneyPrice + "";
         moneyTargetText.text = (int)currentMoneyValue + "$";

@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_GunIdle/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/_GunIdle/Scenes/SpaceScene.unity
+    guid: 57c4319c3214d2243b291c6f1624b036
   m_configObjects: {}

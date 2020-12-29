@@ -7,7 +7,7 @@ public class ammoBoxClick : MonoBehaviour
     public GameObject panel;
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         panel.SetActive(true);
         money.Money += 5000000;
     }

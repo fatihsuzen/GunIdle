@@ -11,11 +11,11 @@ public class ReklamInterstitial : MonoBehaviour
     }
     public void reklam()
     {
-        if(Healthbar.GunLvlCounter%3==0)
+        if(Healthbar.GunLvlCounter%5==0)
         {
         if (reklamObjesi != null)
         reklamObjesi.Destroy();
-        reklamObjesi = new InterstitialAd("ca-app-pub-4820411076035062/1381416198");
+        reklamObjesi = new InterstitialAd("ca-app-pub-5801080710135130/9337124342");
         AdRequest reklamIstegi = new AdRequest.Builder().Build();
         reklamObjesi.LoadAd(reklamIstegi);
         StartCoroutine(ReklamiGoster());

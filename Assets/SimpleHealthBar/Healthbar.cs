@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // Only allow this script to be attached to the object with the healthbar slider:
 [RequireComponent(typeof(Slider))]
@@ -44,37 +45,39 @@ public class Healthbar : MonoBehaviour {
     public Color lowHealthColor = new Color(1f, 0.259434f, 0.259434f);
 
     public static int GunLvlCounter=1;
-    public static float LvlPoint = 2;
+    public static float LvlPoint = 2f;
+    public static int SceneNO;
     public void LvlUpFunc()
     {
         GunLvlCounter++;
         health = 0;
-        if(LvlPoint > 0.1f)
+        if(LvlPoint > 0.23f)
         {
-            LvlPoint -= 0.055f;
+            LvlPoint -= 0.04f;
         }        
         UpdateHealth();
         SaveXp();
     }
     public void SaveXp()
     {
-        PlayerPrefs.SetInt("GunLvlCounter", GunLvlCounter);
-        PlayerPrefs.SetFloat("maximumHealth", maximumHealth);
-        PlayerPrefs.SetFloat("health", health);
-        PlayerPrefs.SetFloat("LvlPoint", LvlPoint);
+        PlayerPrefs.SetInt(SceneNO + "GunLvlCounter", GunLvlCounter);
+        PlayerPrefs.SetFloat(SceneNO + "maximumHealth", maximumHealth);
+        PlayerPrefs.SetFloat(SceneNO + "health", health);
+        PlayerPrefs.SetFloat(SceneNO + "LvlPoint", LvlPoint);
     }
     public void Load()
     {
-        GunLvlCounter = PlayerPrefs.GetInt("GunLvlCounter");
-        maximumHealth += PlayerPrefs.GetFloat("maximumHealth");
-        health = PlayerPrefs.GetFloat("health");
-        if (PlayerPrefs.HasKey("LvlPoint"))
+        GunLvlCounter = PlayerPrefs.GetInt(SceneNO + "GunLvlCounter");
+        maximumHealth += PlayerPrefs.GetFloat(SceneNO + "maximumHealth");
+        health = PlayerPrefs.GetFloat(SceneNO + "health");
+        if (PlayerPrefs.HasKey(SceneNO + "LvlPoint"))
         {
-            LvlPoint = PlayerPrefs.GetFloat("LvlPoint");
+            LvlPoint = PlayerPrefs.GetFloat(SceneNO + "LvlPoint");
         }
     }
     private void Start()
     {
+        SceneNO = SceneManager.GetActiveScene().buildIndex;
         Load();
         // If the healthbar hasn't already been assigned, then automatically assign it.
         if (healthbarDisplay == null)

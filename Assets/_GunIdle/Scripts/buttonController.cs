@@ -8,6 +8,7 @@ public class buttonController : MonoBehaviour
     public List<Button> buttons = new List<Button>();
     public List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
     public Button lvlUpButton;
+    public Button nextLvlButton;
     void Start()
     {
         InvokeRepeating("ButtonControl", 0, 0.1f);
@@ -32,6 +33,14 @@ public class buttonController : MonoBehaviour
         else
         {
             lvlUpButton.interactable = false;
+        }
+        if(levelController.LvlCounter>=25)
+        { 
+            nextLvlButton.interactable = true;
+        }
+        else
+        {
+            nextLvlButton.interactable = false;
         }
     }
 }
